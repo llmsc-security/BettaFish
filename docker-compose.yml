@@ -2,23 +2,20 @@ version: "3.9"
 
 services:
   bettafish:
-    image: ghcr.io/666ghj/bettafish:latest
-    # Speed up mirror
-    # image: ghcr.nju.edu.cn/666ghj/bettafish:latest
+    image: 666ghj--bettafish_image
     build:
       context: .
       dockerfile: Dockerfile
-    #
-    container_name: bettafish
+    container_name: 666ghj--bettafish_container
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
       - STREAMLIT_SERVER_ENABLE_FILE_WATCHER=false
     ports:
-      - "11037:11037"
-      - "8501:8501"
-      - "8502:8502"
-      - "8503:8503"
+      - "11370:11370"
+      - "11371:8501"
+      - "11372:8502"
+      - "11373:8503"
     volumes:
       - ./logs:/app/logs
       - ./final_reports:/app/final_reports
